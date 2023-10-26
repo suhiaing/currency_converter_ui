@@ -4,11 +4,25 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
+    const prefixIcons = Icon(Icons.monetization_on_outlined,
+        size: 19, color: Color.fromARGB(255, 91, 91, 91));
+
+    const colors = Color.fromARGB(255, 64, 64, 64);
+
+    const underlineInputBorders = UnderlineInputBorder(
+      borderSide: BorderSide(color: colors),
+      borderRadius: BorderRadius.only(),
+    );
+
+    const double widths = 220;
+
+    const alignment = MainAxisAlignment.spaceEvenly;
+
     return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: alignment,
       children: <Widget>[
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: alignment,
           children: [
             Text(
               "WELCOME!\n\nUnsure about currency rates?\n\nLet our app do the math for you.\n\nPlease enter the currency exchange rate.",
@@ -21,60 +35,46 @@ class MyApp extends StatelessWidget {
           ],
         ),
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: alignment,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: alignment,
               children: [
                 SizedBox(
-                  width: 220,
+                  width: widths,
                   child: TextField(
-                    cursorColor: Color.fromARGB(255, 91, 91, 91),
+                    cursorColor: colors,
                     decoration: InputDecoration(
                       hintText: "E.g. 1000K exchange",
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 64, 64, 64)),
-                        borderRadius: BorderRadius.only(),
-                      ),
-                      prefixIcon: Icon(Icons.monetization_on_outlined,
-                          size: 19, color: Color.fromARGB(255, 91, 91, 91)),
+                      focusedBorder: underlineInputBorders,
+                      prefixIcon: prefixIcons,
                     ),
                   ),
                 ),
                 Text("                     "),
                 SizedBox(
-                  width: 220,
+                  width: widths,
                   child: TextField(
-                    cursorColor: Color.fromARGB(255, 91, 91, 91),
+                    cursorColor: colors,
                     decoration: InputDecoration(
                       hintText: "to 12B",
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 64, 64, 64)),
-                        borderRadius: BorderRadius.only(),
-                      ),
+                      focusedBorder: underlineInputBorders,
                     ),
                   ),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: alignment,
               children: [
                 SizedBox(
-                  width: 220,
+                  width: widths,
                   child: TextField(
-                    cursorColor: Color.fromARGB(255, 91, 91, 91),
+                    cursorColor: colors,
                     decoration: InputDecoration(
                       hintText: "Enter amount you want",
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 64, 64, 64)),
-                        borderRadius: BorderRadius.only(),
-                      ),
-                      prefixIcon: Icon(Icons.monetization_on_outlined,
-                          size: 19, color: Color.fromARGB(255, 91, 91, 91)),
+                      focusedBorder: underlineInputBorders,
+                      prefixIcon: prefixIcons,
                     ),
                   ),
                 ),
