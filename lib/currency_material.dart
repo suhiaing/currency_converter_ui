@@ -20,45 +20,76 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                  width: 200,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 220,
                   child: TextField(
+                    cursorColor: Color.fromARGB(255, 91, 91, 91),
                     decoration: InputDecoration(
-                        helperText: "E.g. If 1000 MMK will exchange"),
-                  )),
-              Text("          "),
-              SizedBox(
-                  width: 200,
+                      hintText: "E.g. 1000K exchange",
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color.fromARGB(255, 64, 64, 64)),
+                        borderRadius: BorderRadius.only(),
+                      ),
+                      prefixIcon: Icon(Icons.monetization_on_outlined,
+                          size: 19, color: Color.fromARGB(255, 91, 91, 91)),
+                    ),
+                  ),
+                ),
+                Text("                     "),
+                SizedBox(
+                  width: 220,
                   child: TextField(
-                    // decoration: InputDecoration(label: Text("12B")),
-                    decoration: InputDecoration(helperText: "to 12B"),
-                  )),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                  width: 200,
-                  child: TextField(
+                    cursorColor: Color.fromARGB(255, 91, 91, 91),
                     decoration: InputDecoration(
-                        helperText: "So, 0.00MMK will be exchange"),
-                  )),
-              Text("          "),
-              Text(
-                "    '0.00B'",
-                style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey),
-              ),
-            ],
-          ),
-        ]),
+                      hintText: "to 12B",
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color.fromARGB(255, 64, 64, 64)),
+                        borderRadius: BorderRadius.only(),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: 220,
+                  child: TextField(
+                    cursorColor: Color.fromARGB(255, 91, 91, 91),
+                    decoration: InputDecoration(
+                      hintText: "Enter amount you want",
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color.fromARGB(255, 64, 64, 64)),
+                        borderRadius: BorderRadius.only(),
+                      ),
+                      prefixIcon: Icon(Icons.monetization_on_outlined,
+                          size: 19, color: Color.fromARGB(255, 91, 91, 91)),
+                    ),
+                  ),
+                ),
+                Text("                     "),
+                Text(
+                  "'00.0000000'",
+                  style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }
