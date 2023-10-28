@@ -1,30 +1,17 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    const prefixIcons = Icon(Icons.monetization_on_outlined,
-        size: 19, color: Color.fromARGB(255, 91, 91, 91));
-
-    const colors = Color.fromARGB(255, 64, 64, 64);
-
-    const underlineInputBorders = UnderlineInputBorder(
-      borderSide: BorderSide(color: colors),
-      borderRadius: BorderRadius.only(),
-    );
-
-    const double widths = 220;
-
-    const alignment = MainAxisAlignment.spaceEvenly;
-
-    return const Row(
-      mainAxisAlignment: alignment,
+    return Row(
+      mainAxisAlignment: Variables.alignment,
       children: <Widget>[
         Column(
-          mainAxisAlignment: alignment,
+          mainAxisAlignment: Variables.alignment,
           children: [
-            Text(
+            const Text(
               "WELCOME!\n\nUnsure about currency rates?\n\nLet our app do the math for you.\n\nPlease enter the currency exchange rate.",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
@@ -32,50 +19,57 @@ class MyApp extends StatelessWidget {
                 wordSpacing: 13,
               ),
             ),
+            Container(
+              width: 300,
+              height: 50,
+              color: const Color.fromARGB(255, 91, 91, 91),
+            )
           ],
         ),
-        Column(
-          mainAxisAlignment: alignment,
+        const Column(
+          mainAxisAlignment: Variables.alignment,
           children: [
             Row(
-              mainAxisAlignment: alignment,
+              mainAxisAlignment: Variables.alignment,
               children: [
                 SizedBox(
-                  width: widths,
+                  width: Variables.widths,
                   child: TextField(
-                    cursorColor: colors,
+                    cursorColor: Variables.colors,
                     decoration: InputDecoration(
                       hintText: "E.g. 1000K exchange",
-                      focusedBorder: underlineInputBorders,
-                      prefixIcon: prefixIcons,
+                      focusedBorder: Variables.underlineInputBorders,
+                      prefixIcon: Variables.prefixIcons,
                     ),
                   ),
                 ),
                 Text("                     "),
                 SizedBox(
-                  width: widths,
+                  width: Variables.widths,
                   child: TextField(
-                    cursorColor: colors,
+                    cursorColor: Variables.colors,
                     decoration: InputDecoration(
                       hintText: "to 12B",
-                      focusedBorder: underlineInputBorders,
+                      focusedBorder: Variables.underlineInputBorders,
                     ),
                   ),
                 ),
               ],
             ),
             Row(
-              mainAxisAlignment: alignment,
+              mainAxisAlignment: Variables.alignment,
               children: [
                 SizedBox(
-                  width: widths,
+                  width: Variables.widths,
                   child: TextField(
-                    cursorColor: colors,
+                    cursorColor: Variables.colors,
                     decoration: InputDecoration(
                       hintText: "Enter amount you want",
-                      focusedBorder: underlineInputBorders,
-                      prefixIcon: prefixIcons,
+                      focusedBorder: Variables.underlineInputBorders,
+                      prefixIcon: Variables.prefixIcons,
                     ),
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
                   ),
                 ),
                 Text("                     "),
