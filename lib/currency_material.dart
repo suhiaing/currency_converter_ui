@@ -5,28 +5,18 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: Variables.alignment,
       children: <Widget>[
-        Column(
-          mainAxisAlignment: Variables.alignment,
-          children: [
-            const Text(
-              "WELCOME!\n\nUnsure about currency rates?\n\nLet our app do the math for you.\n\nPlease enter the currency exchange rate.",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                wordSpacing: 13,
-              ),
-            ),
-            Container(
-              width: 300,
-              height: 50,
-              color: const Color.fromARGB(255, 91, 91, 91),
-            )
-          ],
+        Text(
+          "WELCOME!\n\nUnsure about currency rates?\n\nLet our app do the math for you.\n\nPlease enter the currency exchange rate.",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 22,
+            wordSpacing: 13,
+          ),
         ),
-        const Column(
+        Column(
           mainAxisAlignment: Variables.alignment,
           children: [
             Row(
@@ -81,6 +71,14 @@ class MyApp extends StatelessWidget {
                       color: Colors.grey),
                 ),
               ],
+            ),
+            TextButton(
+              onPressed: null,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.black),
+                  foregroundColor: MaterialStatePropertyAll(Colors.white),
+                  fixedSize: MaterialStatePropertyAll(Size(480, 50))),
+              child: Text("Convert"),
             ),
           ],
         ),
