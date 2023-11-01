@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-// import 'text.dart';
+import 'text.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String result = '0.000000';
+  TextEditingController textEditingController1 = TextEditingController();
+  TextEditingController textEditingController2 = TextEditingController();
+  TextEditingController textEditingController3 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double? result = 0;
-    TextEditingController textEditingController1 = TextEditingController();
-    TextEditingController textEditingController2 = TextEditingController();
-    TextEditingController textEditingController3 = TextEditingController();
     return Row(
       mainAxisAlignment: Variables.alignment,
       children: <Widget>[
-        // const MyText(),
+        const MyText(),
         Column(
           mainAxisAlignment: Variables.alignment,
           children: [
@@ -32,7 +39,9 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Text("                     "),
+                const SizedBox(
+                  width: 80,
+                ),
                 SizedBox(
                   width: Variables.widths,
                   child: TextField(
@@ -63,32 +72,39 @@ class MyApp extends StatelessWidget {
                         const TextInputType.numberWithOptions(decimal: true),
                   ),
                 ),
-                const Text("                     "),
-                const Text(
-                  "'00.0000000'",
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
+                const SizedBox(
+                  width: 80,
+                ),
+                SizedBox(
+                  width: Variables.widths,
+                  child: Text(
+                    result,
+                    style: const TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
+                  ),
                 ),
               ],
             ),
             TextButton(
               onPressed: () {
-                double? rate1;
-                double? rate2;
-                double? amount;
-                try {
-                  rate1 = double.parse(textEditingController1.text);
-                  rate2 = double.parse(textEditingController2.text);
-                  amount = double.parse(textEditingController3.text);
-                } catch (e) {
-                  debugPrint("$e");
-                }
-                if (rate1 != null && rate2 != null && amount != null) {
-                  result = (amount * (rate2 / rate1));
-                  debugPrint(result.toString());
-                }
+                setState(() {
+                  double? rate1;
+                  double? rate2;
+                  double? amount;
+                  try {
+                    rate1 = double.parse(textEditingController1.text);
+                    rate2 = double.parse(textEditingController2.text);
+                    amount = double.parse(textEditingController3.text);
+                  } catch (e) {
+                    debugPrint("$e");
+                  }
+                  if (rate1 != null && rate2 != null && amount != null) {
+                    result = ((amount * (rate2 / rate1))).toString();
+                    debugPrint(result.toString());
+                  }
+                });
               },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.black,
