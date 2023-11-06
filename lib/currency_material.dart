@@ -15,6 +15,24 @@ class _MyAppState extends State<MyApp> {
   TextEditingController textEditingController2 = TextEditingController();
   TextEditingController textEditingController3 = TextEditingController();
 
+  void calculate() {
+    setState(() {
+      double? rate1;
+      double? rate2;
+      double? amount;
+      try {
+        rate1 = double.parse(textEditingController1.text);
+        rate2 = double.parse(textEditingController2.text);
+        amount = double.parse(textEditingController3.text);
+      } catch (e) {
+        debugPrint("$e");
+      }
+      if (rate1 != null && rate2 != null && amount != null) {
+        result = ((amount * (rate2 / rate1))).toStringAsFixed(2);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -88,24 +106,7 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
             TextButton(
-              onPressed: () {
-                setState(() {
-                  double? rate1;
-                  double? rate2;
-                  double? amount;
-                  try {
-                    rate1 = double.parse(textEditingController1.text);
-                    rate2 = double.parse(textEditingController2.text);
-                    amount = double.parse(textEditingController3.text);
-                  } catch (e) {
-                    debugPrint("$e");
-                  }
-                  if (rate1 != null && rate2 != null && amount != null) {
-                    result = ((amount * (rate2 / rate1))).toString();
-                    debugPrint(result.toString());
-                  }
-                });
-              },
+              onPressed: calculate,
               style: TextButton.styleFrom(
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
